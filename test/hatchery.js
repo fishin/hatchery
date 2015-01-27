@@ -5,7 +5,7 @@ var Hatchery = require('..');
 
 var internals = {
     defaults: {
-        dirPath: 'test'
+        dirPath: __dirname
     }
 };
 
