@@ -1,0 +1,28 @@
+{
+  "name": "hatchery",
+  "version": "0.0.1",
+  "description": "hatchery ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab -a code -t 100 -v -m 10000",
+    "json": "lab -a code -r json -t 100 -o lab.json -m 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fishin/hatchery"
+  },
+  "author": "Lloyd Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fishin/hatchery/issues"
+  },
+  "homepage": "https://github.com/fishin/hatchery",
+  "dependencies": {
+    "hoek": "2.x.x",
+    "pail": "git+https://github.com/fishin/pail"
+  },
+  "devDependencies": {
+    "code": "1.x.x",
+    "lab": "5.x.x"
+  }
+}
