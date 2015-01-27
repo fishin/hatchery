@@ -5,7 +5,7 @@ var Hatchery = require('../lib');
 
 var internals = {
     defaults: {
-        dirPath: __dirname
+        dirPath: 'test'
     }
 };
 
