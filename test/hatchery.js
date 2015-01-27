@@ -1,7 +1,7 @@
 var Code = require('code');
 var Lab = require('lab');
 
-var Hatchery = require('../lib');
+var Hatchery = require('..');
 
 var internals = {
     defaults: {
