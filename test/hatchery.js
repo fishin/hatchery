@@ -5,7 +5,8 @@ var Hatchery = require('..');
 
 var internals = {
     defaults: {
-        dirPath: __dirname
+        dirPath: __dirname,
+        archive: 'example'
     }
 };
 
@@ -19,7 +20,7 @@ describe('hatchery', function () {
     it('getTestResult none', function (done) {
 
         var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('example', 'lab1.json');
+        var result = hatchery.getTestResult('lab1.json');
         expect(result).to.not.exist();
         done();
     });
@@ -27,7 +28,7 @@ describe('hatchery', function () {
     it('getTestResult', function (done) {
 
         var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('example', 'lab.json');
+        var result = hatchery.getTestResult('lab.json');
         expect(result.totalTests).to.exist();
         expect(result.tests).to.exist();
         expect(result.coveragePercent).to.exist();
