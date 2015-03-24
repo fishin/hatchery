@@ -25,6 +25,14 @@ describe('hatchery', function () {
         done();
     });
 
+    it('getTestResult broke', function (done) {
+
+        var hatchery = new Hatchery(internals.defaults);
+        var result = hatchery.getTestResult('broke.json');
+        expect(result).to.not.exist();
+        done();
+    });
+
     it('getTestResult', function (done) {
 
         var hatchery = new Hatchery(internals.defaults);
