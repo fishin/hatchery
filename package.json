@@ -2,7 +2,7 @@
   "name": "hatchery",
   "version": "0.0.3",
   "description": "test functions for ficion",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/fishin/hatchery"
