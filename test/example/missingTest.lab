@@ -1,0 +1,1177 @@
+{
+  "duration": 23,
+  "leaks": [],
+  "coverage": {
+    "sloc": 217,
+    "hits": 217,
+    "misses": 0,
+    "percent": 100,
+    "files": [
+      {
+        "filename": "lib/index.js",
+        "percent": 100,
+        "hits": 217,
+        "misses": 0,
+        "sloc": 217,
+        "source": {
+          "1": {
+            "source": "var Fs = require('fs');",
+            "hits": 1,
+            "miss": false
+          },
+          "2": {
+            "source": "var Path = require('path');",
+            "hits": 1,
+            "miss": false
+          },
+          "3": {
+            "source": "var Uuid = require('node-uuid');",
+            "hits": 1,
+            "miss": false
+          },
+          "4": {
+            "source": "var Hoek = require('hoek');",
+            "hits": 1,
+            "miss": false
+          },
+          "5": {
+            "source": "",
+            "miss": false
+          },
+          "6": {
+            "source": "var internals = {",
+            "hits": 1,
+            "miss": false
+          },
+          "7": {
+            "source": "    defaults: {",
+            "miss": false
+          },
+          "8": {
+            "source": "        configFile: 'config.json', ",
+            "miss": false
+          },
+          "9": {
+            "source": "        workspace: 'workspace',",
+            "miss": false
+          },
+          "10": {
+            "source": "        dirpath: '/tmp/pail'",
+            "miss": false
+          },
+          "11": {
+            "source": "    }",
+            "miss": false
+          },
+          "12": {
+            "source": "};",
+            "miss": false
+          },
+          "13": {
+            "source": "",
+            "miss": false
+          },
+          "14": {
+            "source": "module.exports = function (options) {",
+            "hits": 1,
+            "miss": false
+          },
+          "15": {
+            "source": "",
+            "miss": false
+          },
+          "16": {
+            "source": "    var settings = Hoek.applyToDefaults(internals.defaults, options);",
+            "hits": 2,
+            "miss": false
+          },
+          "17": {
+            "source": "    this.settings = settings;",
+            "hits": 2,
+            "miss": false
+          },
+          "18": {
+            "source": "    this.createWorkspace = exports.createWorkspace;",
+            "hits": 2,
+            "miss": false
+          },
+          "19": {
+            "source": "    this.deleteWorkspace = exports.deleteWorkspace;",
+            "hits": 2,
+            "miss": false
+          },
+          "20": {
+            "source": "    this.getWorkspaceArtifact = exports.getWorkspaceArtifact;",
+            "hits": 2,
+            "miss": false
+          },
+          "21": {
+            "source": "    this.createPail = exports.createPail;",
+            "hits": 2,
+            "miss": false
+          },
+          "22": {
+            "source": "    this.updatePail = exports.updatePail;",
+            "hits": 2,
+            "miss": false
+          },
+          "23": {
+            "source": "    this.getPail = exports.getPail;",
+            "hits": 2,
+            "miss": false
+          },
+          "24": {
+            "source": "    this.getPails = exports.getPails;",
+            "hits": 2,
+            "miss": false
+          },
+          "25": {
+            "source": "    this.deletePail = exports.deletePail;",
+            "hits": 2,
+            "miss": false
+          },
+          "26": {
+            "source": "    this.createLink = exports.createLink;",
+            "hits": 2,
+            "miss": false
+          },
+          "27": {
+            "source": "    this.deleteLink = exports.deleteLink;",
+            "hits": 2,
+            "miss": false
+          },
+          "28": {
+            "source": "    this.getLinks = exports.getLinks;",
+            "hits": 2,
+            "miss": false
+          },
+          "29": {
+            "source": "    this.getPailByLink = exports.getPailByLink;",
+            "hits": 2,
+            "miss": false
+          },
+          "30": {
+            "source": "};",
+            "miss": false
+          },
+          "31": {
+            "source": "",
+            "miss": false
+          },
+          "32": {
+            "source": "exports.deleteWorkspace = function() {",
+            "hits": 1,
+            "miss": false
+          },
+          "33": {
+            "source": "",
+            "miss": false
+          },
+          "34": {
+            "source": "    var dir = this.settings.dirpath + '/' + this.settings.workspace;",
+            "hits": 4,
+            "miss": false
+          },
+          "35": {
+            "source": "    if (Fs.existsSync(dir)) {",
+            "hits": 4,
+            "miss": false
+          },
+          "36": {
+            "source": "        internals.deleteDir(dir);",
+            "hits": 3,
+            "miss": false
+          },
+          "37": {
+            "source": "    }",
+            "miss": false
+          },
+          "38": {
+            "source": "};",
+            "miss": false
+          },
+          "39": {
+            "source": "",
+            "miss": false
+          },
+          "40": {
+            "source": "exports.getWorkspaceArtifact = function(artifact) {",
+            "hits": 1,
+            "miss": false
+          },
+          "41": {
+            "source": "",
+            "miss": false
+          },
+          "42": {
+            "source": "    var artifactFile  = this.settings.dirpath + '/' + this.settings.workspace + '/' + artifact;",
+            "hits": 2,
+            "miss": false
+          },
+          "43": {
+            "source": "    if (Fs.existsSync(artifactFile)) {",
+            "hits": 2,
+            "miss": false
+          },
+          "44": {
+            "source": "        var contents = Fs.readFileSync(artifactFile, \"utf8\");",
+            "hits": 1,
+            "miss": false
+          },
+          "45": {
+            "source": "        return contents;",
+            "hits": 1,
+            "miss": false
+          },
+          "46": {
+            "source": "    }",
+            "miss": false
+          },
+          "47": {
+            "source": "    else {",
+            "miss": false
+          },
+          "48": {
+            "source": "        return null;",
+            "hits": 1,
+            "miss": false
+          },
+          "49": {
+            "source": "    }",
+            "miss": false
+          },
+          "50": {
+            "source": "};",
+            "miss": false
+          },
+          "51": {
+            "source": "",
+            "miss": false
+          },
+          "52": {
+            "source": "internals.deleteDir = function(dir) {",
+            "hits": 1,
+            "miss": false
+          },
+          "53": {
+            "source": "",
+            "miss": false
+          },
+          "54": {
+            "source": "    var list = Fs.readdirSync(dir);",
+            "hits": 9,
+            "miss": false
+          },
+          "55": {
+            "source": "    for(var i = 0; i < list.length; i++) {",
+            "hits": 9,
+            "miss": false
+          },
+          "56": {
+            "source": "      ",
+            "miss": false
+          },
+          "57": {
+            "source": "        var filename = Path.join(dir, list[i]);",
+            "hits": 8,
+            "miss": false
+          },
+          "58": {
+            "source": "        var stat = Fs.lstatSync(filename);",
+            "hits": 8,
+            "miss": false
+          },
+          "59": {
+            "source": "        if (stat.isDirectory()) {",
+            "hits": 8,
+            "miss": false
+          },
+          "60": {
+            "source": "             ",
+            "miss": false
+          },
+          "61": {
+            "source": "            // rmdir recursively",
+            "miss": false
+          },
+          "62": {
+            "source": "            internals.deleteDir(filename);",
+            "hits": 1,
+            "miss": false
+          },
+          "63": {
+            "source": "        }",
+            "miss": false
+          },
+          "64": {
+            "source": "        else {",
+            "miss": false
+          },
+          "65": {
+            "source": "           // rm filename",
+            "miss": false
+          },
+          "66": {
+            "source": "           Fs.unlinkSync(filename);",
+            "hits": 7,
+            "miss": false
+          },
+          "67": {
+            "source": "        }",
+            "miss": false
+          },
+          "68": {
+            "source": "    }",
+            "miss": false
+          },
+          "69": {
+            "source": "    Fs.rmdirSync(dir);",
+            "hits": 9,
+            "miss": false
+          },
+          "70": {
+            "source": "};",
+            "miss": false
+          },
+          "71": {
+            "source": "",
+            "miss": false
+          },
+          "72": {
+            "source": "exports.createWorkspace = function() {",
+            "hits": 1,
+            "miss": false
+          },
+          "73": {
+            "source": "",
+            "miss": false
+          },
+          "74": {
+            "source": "    var dir = this.settings.dirpath + '/' + this.settings.workspace;",
+            "hits": 4,
+            "miss": false
+          },
+          "75": {
+            "source": "    if (!Fs.existsSync(dir)) {",
+            "hits": 4,
+            "miss": false
+          },
+          "76": {
+            "source": "        Fs.mkdirSync(dir);",
+            "hits": 3,
+            "miss": false
+          },
+          "77": {
+            "source": "    }",
+            "miss": false
+          },
+          "78": {
+            "source": "}",
+            "miss": false
+          },
+          "79": {
+            "source": "",
+            "miss": false
+          },
+          "80": {
+            "source": "internals.mkdirp = function (dirpath) {",
+            "hits": 1,
+            "miss": false
+          },
+          "81": {
+            "source": "  ",
+            "miss": false
+          },
+          "82": {
+            "source": "  var parts = dirpath.split('/');",
+            "hits": 5,
+            "miss": false
+          },
+          "83": {
+            "source": "  for ( var i = 2; i <= parts.length; i++ ) {",
+            "hits": 5,
+            "miss": false
+          },
+          "84": {
+            "source": "",
+            "miss": false
+          },
+          "85": {
+            "source": "    var dir = parts.slice(0, i).join('/');",
+            "hits": 15,
+            "miss": false
+          },
+          "86": {
+            "source": "    if ( ! Fs.existsSync(dir) ) {",
+            "hits": 15,
+            "miss": false
+          },
+          "87": {
+            "source": "        //console.log('making dir: ' + dir);",
+            "miss": false
+          },
+          "88": {
+            "source": "        Fs.mkdirSync ( dir );",
+            "hits": 5,
+            "miss": false
+          },
+          "89": {
+            "source": "    }",
+            "miss": false
+          },
+          "90": {
+            "source": "  }",
+            "miss": false
+          },
+          "91": {
+            "source": "}",
+            "miss": false
+          },
+          "92": {
+            "source": "",
+            "miss": false
+          },
+          "93": {
+            "source": "internals.getDirs = function (dirpath) {",
+            "hits": 1,
+            "miss": false
+          },
+          "94": {
+            "source": "",
+            "miss": false
+          },
+          "95": {
+            "source": "    var list = [];",
+            "hits": 18,
+            "miss": false
+          },
+          "96": {
+            "source": "    if (Fs.existsSync(dirpath)) {",
+            "hits": 18,
+            "miss": false
+          },
+          "97": {
+            "source": "        list = Fs.readdirSync(dirpath);",
+            "hits": 17,
+            "miss": false
+          },
+          "98": {
+            "source": "    }",
+            "miss": false
+          },
+          "99": {
+            "source": "    var dirs = [];",
+            "hits": 18,
+            "miss": false
+          },
+          "100": {
+            "source": "    for(var i = 0; i < list.length; i++) {",
+            "hits": 18,
+            "miss": false
+          },
+          "101": {
+            "source": "",
+            "miss": false
+          },
+          "102": {
+            "source": "        var filename = Path.join(dirpath, list[i]);",
+            "hits": 49,
+            "miss": false
+          },
+          "103": {
+            "source": "        var stat = Fs.lstatSync(filename);",
+            "hits": 49,
+            "miss": false
+          },
+          "104": {
+            "source": "        if (stat.isDirectory()) {",
+            "hits": 49,
+            "miss": false
+          },
+          "105": {
+            "source": "            var path = filename.split('/');",
+            "hits": 23,
+            "miss": false
+          },
+          "106": {
+            "source": "\t    var dir = path[path.length-1];",
+            "hits": 23,
+            "miss": false
+          },
+          "107": {
+            "source": "            if (dir !== internals.defaults.workspace) {",
+            "hits": 23,
+            "miss": false
+          },
+          "108": {
+            "source": "               dirs.push(dir);",
+            "hits": 13,
+            "miss": false
+          },
+          "109": {
+            "source": "            }",
+            "miss": false
+          },
+          "110": {
+            "source": "        }",
+            "miss": false
+          },
+          "111": {
+            "source": "    }",
+            "miss": false
+          },
+          "112": {
+            "source": "    return dirs;",
+            "hits": 18,
+            "miss": false
+          },
+          "113": {
+            "source": "};",
+            "miss": false
+          },
+          "114": {
+            "source": "",
+            "miss": false
+          },
+          "115": {
+            "source": "exports.getPails = function () {",
+            "hits": 1,
+            "miss": false
+          },
+          "116": {
+            "source": "",
+            "miss": false
+          },
+          "117": {
+            "source": "    var pails = internals.getDirs(this.settings.dirpath);",
+            "hits": 18,
+            "miss": false
+          },
+          "118": {
+            "source": "    return pails;",
+            "hits": 18,
+            "miss": false
+          },
+          "119": {
+            "source": "};",
+            "miss": false
+          },
+          "120": {
+            "source": "",
+            "miss": false
+          },
+          "121": {
+            "source": "exports.createPail = function (config) {",
+            "hits": 1,
+            "miss": false
+          },
+          "122": {
+            "source": "",
+            "miss": false
+          },
+          "123": {
+            "source": "   //console.log('saving with config: ' + JSON.stringify(config));",
+            "miss": false
+          },
+          "124": {
+            "source": "   config.id = Uuid.v4();",
+            "hits": 5,
+            "miss": false
+          },
+          "125": {
+            "source": "   var dirpath = this.settings.dirpath + '/' + config.id;",
+            "hits": 5,
+            "miss": false
+          },
+          "126": {
+            "source": "   internals.mkdirp(dirpath);",
+            "hits": 5,
+            "miss": false
+          },
+          "127": {
+            "source": "   var configFile = dirpath + '/' + this.settings.configFile;",
+            "hits": 5,
+            "miss": false
+          },
+          "128": {
+            "source": "   config.status = 'created';",
+            "hits": 5,
+            "miss": false
+          },
+          "129": {
+            "source": "   config.createTime = new Date().getTime();",
+            "hits": 5,
+            "miss": false
+          },
+          "130": {
+            "source": "   Fs.writeFileSync(configFile, JSON.stringify(config,null,4));",
+            "hits": 5,
+            "miss": false
+          },
+          "131": {
+            "source": "   if (config.name) {",
+            "hits": 5,
+            "miss": false
+          },
+          "132": {
+            "source": "       Fs.symlinkSync(dirpath, this.settings.dirpath + '/' + config.name);",
+            "hits": 3,
+            "miss": false
+          },
+          "133": {
+            "source": "   }",
+            "miss": false
+          },
+          "134": {
+            "source": "   return config;",
+            "hits": 5,
+            "miss": false
+          },
+          "135": {
+            "source": "};",
+            "miss": false
+          },
+          "136": {
+            "source": "",
+            "miss": false
+          },
+          "137": {
+            "source": "exports.updatePail = function (config) {",
+            "hits": 1,
+            "miss": false
+          },
+          "138": {
+            "source": "",
+            "miss": false
+          },
+          "139": {
+            "source": "   //console.log('saving with config: ' + JSON.stringify(config));",
+            "miss": false
+          },
+          "140": {
+            "source": "   var dirpath = this.settings.dirpath + '/' + config.id;",
+            "hits": 6,
+            "miss": false
+          },
+          "141": {
+            "source": "   if (config.name) {",
+            "hits": 6,
+            "miss": false
+          },
+          "142": {
+            "source": "       var origConfig = this.getPail(config.id);",
+            "hits": 5,
+            "miss": false
+          },
+          "143": {
+            "source": "       if (origConfig.name !== config.name) {",
+            "hits": 5,
+            "miss": false
+          },
+          "144": {
+            "source": "           Fs.unlinkSync(this.settings.dirpath + '/' + origConfig.name);",
+            "hits": 1,
+            "miss": false
+          },
+          "145": {
+            "source": "           //Fs.symlinkSync(dirpath, this.settings.dirpath + '/' + config.name);",
+            "miss": false
+          },
+          "146": {
+            "source": "           this.createLink(config.id, config.name);",
+            "hits": 1,
+            "miss": false
+          },
+          "147": {
+            "source": "       }",
+            "miss": false
+          },
+          "148": {
+            "source": "   }",
+            "miss": false
+          },
+          "149": {
+            "source": "   var configFile = dirpath + '/' + this.settings.configFile;",
+            "hits": 6,
+            "miss": false
+          },
+          "150": {
+            "source": "   if (config.status === 'succeeded' || config.status === 'failed' || config.status === 'cancelled') {",
+            "hits": 6,
+            "miss": false
+          },
+          "151": {
+            "source": "",
+            "miss": false
+          },
+          "152": {
+            "source": "       config.finishTime = new Date().getTime();",
+            "hits": 4,
+            "miss": false
+          },
+          "153": {
+            "source": "       this.createLink(config.id, 'last');",
+            "hits": 4,
+            "miss": false
+          },
+          "154": {
+            "source": "   }",
+            "miss": false
+          },
+          "155": {
+            "source": "   if (config.status === 'succeeded') {",
+            "hits": 6,
+            "miss": false
+          },
+          "156": {
+            "source": "       this.createLink(config.id, 'lastSuccess');",
+            "hits": 1,
+            "miss": false
+          },
+          "157": {
+            "source": "   }",
+            "miss": false
+          },
+          "158": {
+            "source": "   if (config.status === 'failed') {",
+            "hits": 6,
+            "miss": false
+          },
+          "159": {
+            "source": "       this.createLink(config.id, 'lastFail');",
+            "hits": 1,
+            "miss": false
+          },
+          "160": {
+            "source": "   }",
+            "miss": false
+          },
+          "161": {
+            "source": "   if (config.status === 'cancelled') {",
+            "hits": 6,
+            "miss": false
+          },
+          "162": {
+            "source": "       this.createLink(config.id, 'lastCancel');",
+            "hits": 2,
+            "miss": false
+          },
+          "163": {
+            "source": "   }",
+            "miss": false
+          },
+          "164": {
+            "source": "   if (config.status === 'starting') {",
+            "hits": 6,
+            "miss": false
+          },
+          "165": {
+            "source": "       config.startTime = new Date().getTime();",
+            "hits": 2,
+            "miss": false
+          },
+          "166": {
+            "source": "       config.status = 'started';",
+            "hits": 2,
+            "miss": false
+          },
+          "167": {
+            "source": "   }",
+            "miss": false
+          },
+          "168": {
+            "source": "   config.updateTime = new Date().getTime();",
+            "hits": 6,
+            "miss": false
+          },
+          "169": {
+            "source": "   Fs.writeFileSync(configFile, JSON.stringify(config,null,4));",
+            "hits": 6,
+            "miss": false
+          },
+          "170": {
+            "source": "   return config;",
+            "hits": 6,
+            "miss": false
+          },
+          "171": {
+            "source": "};",
+            "miss": false
+          },
+          "172": {
+            "source": "",
+            "miss": false
+          },
+          "173": {
+            "source": "exports.getPail = function (pailId) {",
+            "hits": 1,
+            "miss": false
+          },
+          "174": {
+            "source": "",
+            "miss": false
+          },
+          "175": {
+            "source": "   var dirpath = this.settings.dirpath + '/' + pailId;",
+            "hits": 16,
+            "miss": false
+          },
+          "176": {
+            "source": "   var configFile = dirpath + '/' + this.settings.configFile;",
+            "hits": 16,
+            "miss": false
+          },
+          "177": {
+            "source": "   var config = Fs.readFileSync(configFile, \"utf8\");",
+            "hits": 16,
+            "miss": false
+          },
+          "178": {
+            "source": "   return JSON.parse(config);",
+            "hits": 16,
+            "miss": false
+          },
+          "179": {
+            "source": "};",
+            "miss": false
+          },
+          "180": {
+            "source": "",
+            "miss": false
+          },
+          "181": {
+            "source": "exports.deletePail = function (pailId) {",
+            "hits": 1,
+            "miss": false
+          },
+          "182": {
+            "source": "",
+            "miss": false
+          },
+          "183": {
+            "source": "   var dirpath = this.settings.dirpath + '/' + pailId;",
+            "hits": 5,
+            "miss": false
+          },
+          "184": {
+            "source": "   var links = this.getLinks(pailId);",
+            "hits": 5,
+            "miss": false
+          },
+          "185": {
+            "source": "   for (var i = 0; i < links.length; i++) {",
+            "hits": 5,
+            "miss": false
+          },
+          "186": {
+            "source": "       this.deleteLink(links[i]);",
+            "hits": 7,
+            "miss": false
+          },
+          "187": {
+            "source": "   }",
+            "miss": false
+          },
+          "188": {
+            "source": "   internals.deleteDir(dirpath);",
+            "hits": 5,
+            "miss": false
+          },
+          "189": {
+            "source": "};",
+            "miss": false
+          },
+          "190": {
+            "source": "",
+            "miss": false
+          },
+          "191": {
+            "source": "exports.createLink = function(pailId, name) {",
+            "hits": 1,
+            "miss": false
+          },
+          "192": {
+            "source": "",
+            "miss": false
+          },
+          "193": {
+            "source": "   var dirpath = this.settings.dirpath + '/' + pailId;",
+            "hits": 11,
+            "miss": false
+          },
+          "194": {
+            "source": "   var link;",
+            "hits": 11,
+            "miss": false
+          },
+          "195": {
+            "source": "   try {",
+            "hits": 11,
+            "miss": false
+          },
+          "196": {
+            "source": "      link = Fs.readlinkSync(this.settings.dirpath + '/' + name);",
+            "hits": 11,
+            "miss": false
+          },
+          "197": {
+            "source": "   } ",
+            "miss": false
+          },
+          "198": {
+            "source": "   catch (err) {",
+            "miss": false
+          },
+          "199": {
+            "source": "      // dont care",
+            "miss": false
+          },
+          "200": {
+            "source": "   }",
+            "miss": false
+          },
+          "201": {
+            "source": "   if (link) {",
+            "hits": 11,
+            "miss": false
+          },
+          "202": {
+            "source": "      this.deleteLink(name);",
+            "hits": 5,
+            "miss": false
+          },
+          "203": {
+            "source": "   }",
+            "miss": false
+          },
+          "204": {
+            "source": "   Fs.symlinkSync(dirpath, this.settings.dirpath + '/' + name);",
+            "hits": 11,
+            "miss": false
+          },
+          "205": {
+            "source": "}",
+            "miss": false
+          },
+          "206": {
+            "source": "",
+            "miss": false
+          },
+          "207": {
+            "source": "exports.deleteLink = function(name) {",
+            "hits": 1,
+            "miss": false
+          },
+          "208": {
+            "source": "",
+            "miss": false
+          },
+          "209": {
+            "source": "    Fs.unlinkSync(this.settings.dirpath + '/' + name);",
+            "hits": 13,
+            "miss": false
+          },
+          "210": {
+            "source": "}",
+            "miss": false
+          },
+          "211": {
+            "source": "",
+            "miss": false
+          },
+          "212": {
+            "source": "exports.getLinks = function(pailId) {",
+            "hits": 1,
+            "miss": false
+          },
+          "213": {
+            "source": "",
+            "miss": false
+          },
+          "214": {
+            "source": "    var dir = this.settings.dirpath;",
+            "hits": 7,
+            "miss": false
+          },
+          "215": {
+            "source": "    var list = Fs.readdirSync(dir);",
+            "hits": 7,
+            "miss": false
+          },
+          "216": {
+            "source": "    var links = [];",
+            "hits": 7,
+            "miss": false
+          },
+          "217": {
+            "source": "    for(var i = 0; i < list.length; i++) {",
+            "hits": 7,
+            "miss": false
+          },
+          "218": {
+            "source": "      ",
+            "miss": false
+          },
+          "219": {
+            "source": "        var filename = Path.join(dir, list[i]);",
+            "hits": 21,
+            "miss": false
+          },
+          "220": {
+            "source": "        var stat = Fs.lstatSync(filename);",
+            "hits": 21,
+            "miss": false
+          },
+          "221": {
+            "source": "        if (stat.isSymbolicLink()) {",
+            "hits": 21,
+            "miss": false
+          },
+          "222": {
+            "source": "            var path = Fs.readlinkSync(filename);",
+            "hits": 13,
+            "miss": false
+          },
+          "223": {
+            "source": "            if (path.match(pailId)) {",
+            "hits": 13,
+            "miss": false
+          },
+          "224": {
+            "source": "                //console.log('matched: ' + list[i]);",
+            "miss": false
+          },
+          "225": {
+            "source": "                links.push(list[i]);",
+            "hits": 12,
+            "miss": false
+          },
+          "226": {
+            "source": "            }",
+            "miss": false
+          },
+          "227": {
+            "source": "        }",
+            "miss": false
+          },
+          "228": {
+            "source": "    }",
+            "miss": false
+          },
+          "229": {
+            "source": "    return links;",
+            "hits": 7,
+            "miss": false
+          },
+          "230": {
+            "source": "}",
+            "miss": false
+          },
+          "231": {
+            "source": "",
+            "miss": false
+          },
+          "232": {
+            "source": "exports.getPailByLink = function(link) {",
+            "hits": 1,
+            "miss": false
+          },
+          "233": {
+            "source": "",
+            "miss": false
+          },
+          "234": {
+            "source": "   var linkPath = this.settings.dirpath + '/' + link;",
+            "hits": 6,
+            "miss": false
+          },
+          "235": {
+            "source": "   var dirpath = null;",
+            "hits": 6,
+            "miss": false
+          },
+          "236": {
+            "source": "   try {",
+            "hits": 6,
+            "miss": false
+          },
+          "237": {
+            "source": "       dirpath = Fs.readlinkSync(linkPath);",
+            "hits": 6,
+            "miss": false
+          },
+          "238": {
+            "source": "   }",
+            "miss": false
+          },
+          "239": {
+            "source": "   catch (err) {",
+            "miss": false
+          },
+          "240": {
+            "source": "       dirpath = null;",
+            "hits": 1,
+            "miss": false
+          },
+          "241": {
+            "source": "   }",
+            "miss": false
+          },
+          "242": {
+            "source": "   finally {",
+            "miss": false
+          },
+          "243": {
+            "source": "       if (dirpath) {",
+            "hits": 6,
+            "miss": false
+          },
+          "244": {
+            "source": "           var pail = dirpath.split('/');",
+            "hits": 5,
+            "miss": false
+          },
+          "245": {
+            "source": "           var pailId = pail[pail.length-1];",
+            "hits": 5,
+            "miss": false
+          },
+          "246": {
+            "source": "           return pailId;",
+            "hits": 5,
+            "miss": false
+          },
+          "247": {
+            "source": "       }",
+            "miss": false
+          },
+          "248": {
+            "source": "       else {",
+            "miss": false
+          },
+          "249": {
+            "source": "           return null;",
+            "hits": 1,
+            "miss": false
+          },
+          "250": {
+            "source": "       }",
+            "miss": false
+          },
+          "251": {
+            "source": "   }",
+            "miss": false
+          },
+          "252": {
+            "source": "}",
+            "miss": false
+          },
+          "253": {
+            "source": "",
+            "miss": false
+          }
+        }
+      }
+    ]
+  }
+}
