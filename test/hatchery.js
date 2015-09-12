@@ -3,13 +3,6 @@ var Lab = require('lab');
 
 var Hatchery = require('..');
 
-var internals = {
-    defaults: {
-        dirPath: __dirname,
-        archive: 'example'
-    }
-};
-
 var lab = exports.lab = Lab.script();
 var expect = Code.expect;
 var describe = lab.describe;
@@ -19,32 +12,60 @@ describe('hatchery', function () {
 
     it('getTestResult none', function (done) {
 
-        var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('test.none');
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'none'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
+        expect(result).to.not.exist();
+        done();
+    });
+
+    it('getTestResult invalid', function (done) {
+
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'invalid'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
     it('getTestResult lab broke', function (done) {
 
-        var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('broke.lab');
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'broke'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
     it('getTestResult lab missing tests', function (done) {
 
-        var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('missingTests.lab');
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'missing'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
     it('getTestResult lab', function (done) {
 
-        var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('test.lab');
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'lab'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
         expect(result.totalTests).to.exist();
         expect(result.tests).to.exist();
         expect(result.coveragePercent).to.exist();
@@ -56,8 +77,12 @@ describe('hatchery', function () {
 
     it('getTestResult tap', function (done) {
 
-        var hatchery = new Hatchery(internals.defaults);
-        var result = hatchery.getTestResult('test.tap');
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'tap'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
         expect(result.totalTests).to.exist();
         expect(result.tests).to.exist();
         expect(result.totalDuration).to.exist();
