@@ -1,6 +1,6 @@
 {
   "name": "hatchery",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "test functions for ficion",
   "main": "lib/index.js",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/fishin/hatchery",
   "engines": {
-    "node": ">=0.10.x"
+    "node": ">=4"
   },
   "scripts": {
     "clean": "rm -rf node_modules",
