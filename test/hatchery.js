@@ -22,6 +22,18 @@ describe('hatchery', function () {
         done();
     });
 
+    it('getTestResult null', function (done) {
+
+        var options = {
+            dirPath: __dirname + '/examples',
+            archive: 'null'
+        };
+        var hatchery = new Hatchery(options);
+        var result = hatchery.getTestResult();
+        expect(result).to.not.exist();
+        done();
+    });
+
     it('getTestResult invalid', function (done) {
 
         var options = {
