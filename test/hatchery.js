@@ -1,83 +1,85 @@
-var Code = require('code');
-var Lab = require('lab');
+'use strict';
 
-var Hatchery = require('..');
+const Code = require('code');
+const Lab = require('lab');
 
-var lab = exports.lab = Lab.script();
-var expect = Code.expect;
-var describe = lab.describe;
-var it = lab.it;
+const Hatchery = require('..');
 
-describe('hatchery', function () {
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
-    it('getTestResult none', function (done) {
+describe('hatchery', () => {
 
-        var options = {
+    it('getTestResult none', (done) => {
+
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'none'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
-    it('getTestResult null', function (done) {
+    it('getTestResult null', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'null'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
-    it('getTestResult invalid', function (done) {
+    it('getTestResult invalid', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'invalid'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
-    it('getTestResult lab broke', function (done) {
+    it('getTestResult lab broke', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'broke'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
-    it('getTestResult lab missing tests', function (done) {
+    it('getTestResult lab missing tests', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'missing'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result).to.not.exist();
         done();
     });
 
-    it('getTestResult lab', function (done) {
+    it('getTestResult lab', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'lab'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result.totalTests).to.exist();
         expect(result.tests).to.exist();
         expect(result.coveragePercent).to.exist();
@@ -87,14 +89,14 @@ describe('hatchery', function () {
         done();
     });
 
-    it('getTestResult tap', function (done) {
+    it('getTestResult tap', (done) => {
 
-        var options = {
+        const options = {
             dirPath: __dirname + '/examples',
             archive: 'tap'
         };
-        var hatchery = new Hatchery(options);
-        var result = hatchery.getTestResult();
+        const hatchery = new Hatchery(options);
+        const result = hatchery.getTestResult();
         expect(result.totalTests).to.exist();
         expect(result.tests).to.exist();
         expect(result.totalDuration).to.exist();
